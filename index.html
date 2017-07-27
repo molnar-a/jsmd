@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+		<script src="jsmd.min.js"></script>
+		<style>
+			body {
+				text-align: center;
+			}
+			#theresults {
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<h3><a href="https://github.com/lvivtotoro/jsmd">Jsmd</a></h3>
+		<div class="row">
+			<form class="col s12">
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="thearea" class="materialize-textarea"></textarea>
+						<label for="thearea">Enter your Markdown here</label>
+						<div id="theresults"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script>
+			$("#thearea").on('keyup change', function() {
+				var result = jsmd($("#thearea").val());
+				console.log(result);
+				$("#theresults").html(result);
+			});
+		</script>
+	</body>
+</html>
